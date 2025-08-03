@@ -65,4 +65,20 @@ async function myIp() {
   }
 }
 
+const url = 'https://phonevalidation.abstractapi.com/v1';
+const options = {method: 'GET', body: undefined};
+
+async function phoneInput() {
+  try {
+    let phoneInput = readlineSync.question("Enter a Phone Number : ");
+    if (!phoneInput) return;
+    const response = await fetch(`https://phonevalidation.abstractapi.com/v1/${phoneInput}`);
+    const responseToJson = await response.json();
+    console.log(responseToJson);
+  }
+  catch (error) {
+    console.error("Error retrieving the Phone number.", error);
+  }
+}
+
 menu();
