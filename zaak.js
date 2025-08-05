@@ -18,6 +18,7 @@ function menu() {
   console.log("                                              +-----------+".red);
   
   while (true) {
+    console.log("0 - Quit");
     console.log("1 - Ip LookUp");
     console.log("2 - What's my IP ??");
     console.log("3 - Number Phone Lookup");
@@ -35,6 +36,9 @@ function menu() {
     } if (choix === 3) {
       console.log("3 - Number Phone Lookup :");
       phoneInput();
+      break;
+    }
+    if (choix === 0) {
       break;
     }
     else {
