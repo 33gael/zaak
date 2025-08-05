@@ -65,14 +65,13 @@ async function myIp() {
   }
 }
 
-const url = 'https://www.ipqualityscore.com/api/json/phone/vxzDXvWbwx41IeVatUSxiunkMCzmdJrc/' + phoneInput;
 //const options = {method: 'GET', body: undefined};
 
 async function phoneInput() {
   try {
     let phoneInput = readlineSync.question("Enter a Phone Number : ");
     if (!phoneInput) return;
-    const response = await fetch('GET', url);
+    const response = await fetch(`https://www.ipqualityscore.com/api/json/phone/vxzDXvWbwx41IeVatUSxiunkMCzmdJrc/${phoneInput}`);
     const responsePhone = await response.json();
     console.log(responsePhone);
   }
