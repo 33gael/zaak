@@ -1,5 +1,4 @@
 const readlineSync = require("readline-sync");
-const request = require('sync-request');
 const colors = require("colors");
 
 function menu() {
@@ -73,7 +72,7 @@ async function phoneInput() {
   try {
     let phoneInput = readlineSync.question("Enter a Phone Number : ");
     if (!phoneInput) return;
-    const response = await request('GET', url);
+    const response = await fetch('GET', url);
     const responsePhone = await response.json();
     console.log(responsePhone);
   }
