@@ -1,4 +1,5 @@
 const readlineSync = require("readline-sync");
+const request = require('sync-request');
 const colors = require("colors");
 
 function menu() {
@@ -29,12 +30,12 @@ function menu() {
       ipInput();
       break;
     } else if (choix === 2) {
-      console.log("What's my IP ?? : ");
+      console.log("2 - What's my IP ?? : ");
       myIp();
       break;
     } if (choix === 3) {
-      console.log("Number Phone Lookup :");
-      
+      console.log("3 - Number Phone Lookup :");
+      phoneInput();
       break;
     }
     else {
@@ -65,16 +66,16 @@ async function myIp() {
   }
 }
 
-const url = 'https://phonevalidation.abstractapi.com/v1';
-const options = {method: 'GET', body: undefined};
+const url = 'https://www.ipqualityscore.com/api/json/phone/vxzDXvWbwx41IeVatUSxiunkMCzmdJrc/' + phoneInput;
+//const options = {method: 'GET', body: undefined};
 
 async function phoneInput() {
   try {
     let phoneInput = readlineSync.question("Enter a Phone Number : ");
     if (!phoneInput) return;
-    const response = await fetch(`https://phonevalidation.abstractapi.com/v1/${phoneInput}`);
-    const responseToJson = await response.json();
-    console.log(responseToJson);
+    const response = await request('GET', url);
+    const responsePhone = await response.json();
+    console.log(responsePhone);
   }
   catch (error) {
     console.error("Error retrieving the Phone number.", error);
