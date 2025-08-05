@@ -65,8 +65,6 @@ async function myIp() {
   }
 }
 
-//const options = {method: 'GET', body: undefined};
-
 async function phoneInput() {
   try {
     let phoneInput = readlineSync.question("Enter a Phone Number : ");
