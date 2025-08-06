@@ -1,5 +1,6 @@
-const readlineSync = require("readline-sync");
-const colors = require("colors");
+import axios from 'axios';
+import open from 'open';
+import readlineSync from 'readline-sync';
 
 function menu() {
   let choix;
@@ -18,23 +19,23 @@ function menu() {
   console.log("                                              +-----------+".red);
   
   while (true) {
-    console.log("0 - Quit");
-    console.log("1 - Ip LookUp");
-    console.log("2 - What's my IP ??");
-    console.log("3 - Number Phone Lookup");
+    console.log("[0] Quit");
+    console.log("[1] Ip LookUp");
+    console.log("[2] What's my IP ??");
+    console.log("[3] Number Phone Lookup");
     choix = readlineSync.question("Choose an option : ");
     choix = parseInt(choix);
 
     if (choix === 1) {
-      console.log("1 - Ip Lookup : ");
+      console.log("[1] Ip Lookup : ");
       ipInput();
       break;
     } else if (choix === 2) {
-      console.log("2 - What's my IP ?? : ");
+      console.log("[2] What's my IP ?? : ");
       myIp();
       break;
     } if (choix === 3) {
-      console.log("3 - Number Phone Lookup :");
+      console.log("[3] Number Phone Lookup :");
       phoneInput();
       break;
     }
@@ -54,6 +55,9 @@ async function ipInput() {
     const response = await fetch(`http://ip-api.com/json/${ipInput}`);
     const responseToJson = await response.json();
     console.log(responseToJson);
+    const coord = await axios.get(`http://ip-api.com/json/${ipInput}`);
+    const {lat, lon} = coord.data;
+    await open(`https://www.google.com/maps?q=${lat},${lon}`);
   } catch (err) {
     console.log(err);
   }
