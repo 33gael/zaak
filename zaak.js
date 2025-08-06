@@ -5,6 +5,7 @@ import readlineSync from 'readline-sync';
 
 const purple = chalk.ansi256(93);
 const red = chalk.red;
+const green = chalk.green;
 
 function menu() {
   let choix;
@@ -23,24 +24,24 @@ function menu() {
   console.log(red("                                              +-----------+"));
   
   while (true) {
-    console.log("[0] Quit");
-    console.log("[1] Ip LookUp");
-    console.log("[2] What's my IP ??");
-    console.log("[3] Number Phone Lookup");
+    console.log(red("[0]"), "Quit");
+    console.log(red("[1]"), "Ip LookUp");
+    console.log(red("[2]"), "What's my IP ??");
+    console.log(red("[3]"), "Number Phone Lookup");
     choix = readlineSync.question("Choose an option : ");
     choix = parseInt(choix);
 
     if (choix === 1) {
-      console.log("[1] Ip Lookup : ");
+      console.log(green("[1]"), "Ip Lookup : ");
       ipInput();
       break;
     }
     if (choix === 2) {
-      console.log("[2] What's my IP ?? : ");
+      console.log(green("[2]"), "What's my IP ?? : ");
       myIp();
       break;
     } if (choix === 3) {
-      console.log("[3] Number Phone Lookup :");
+      console.log(green("[3]"), "Number Phone Lookup :");
       phoneInput();
       break;
     }
