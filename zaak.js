@@ -34,7 +34,8 @@ function menu() {
       console.log("[1] Ip Lookup : ");
       ipInput();
       break;
-    } else if (choix === 2) {
+    }
+    if (choix === 2) {
       console.log("[2] What's my IP ?? : ");
       myIp();
       break;
