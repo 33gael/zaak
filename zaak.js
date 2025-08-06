@@ -1,22 +1,26 @@
 import axios from 'axios';
+import chalk from 'chalk';
 import open from 'open';
 import readlineSync from 'readline-sync';
+
+const purple = chalk.ansi256(93);
+const red = chalk.red;
 
 function menu() {
   let choix;
   console.clear()
-  console.log('                                 +------------------------------------+'.red)
-  console.log('                                 |'.red,'\x1b[38;5;93m ███████╗ █████╗  █████╗ ██╗  ██╗ \x1b[0m','|'.red);
-  console.log('                                 |'.red,'\x1b[38;5;93m ╚══███╔╝██╔══██╗██╔══██╗██║ ██╔╝ \x1b[0m','|'.red);
-  console.log('                                 |'.red,'\x1b[38;5;93m   ███╔╝ ███████║███████║█████╔╝  \x1b[0m','|'.red);
-  console.log('                                 |'.red,'\x1b[38;5;93m  ███╔╝  ██╔══██║██╔══██║██╔═██╗  \x1b[0m','|'.red);
-  console.log('                                 |'.red,'\x1b[38;5;93m ███████╗██║  ██║██║  ██║██║  ██╗ \x1b[0m','|'.red);
-  console.log('                                 |'.red,'\x1b[38;5;93m ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ \x1b[0m','|'.red);
-  console.log('                                 +------------------------------------+'.red)
-  console.log("                                              +-----------+".red);
-  console.log("                                              |".red, "\x1b[38;5;93m Zaak V1 \x1b[0m",'|'.red);
-  console.log("                                              |".red, "\x1b[38;5;93m @33gael \x1b[0m",'|'.red);
-  console.log("                                              +-----------+".red);
+  console.log(red('                                 +------------------------------------+'));
+  console.log(red('                                 |'), purple(' ███████╗ █████╗  █████╗ ██╗  ██╗ '), red('|'));
+  console.log(red('                                 |'), purple(' ╚══███╔╝██╔══██╗██╔══██╗██║ ██╔╝ '), red('|'));
+  console.log(red('                                 |'), purple('   ███╔╝ ███████║███████║█████╔╝  '), red('|'));
+  console.log(red('                                 |'), purple('  ███╔╝  ██╔══██║██╔══██║██╔═██╗  '),red('|'));
+  console.log(red('                                 |'), purple(' ███████╗██║  ██║██║  ██║██║  ██╗ '),red('|'));
+  console.log(red('                                 |'), purple(' ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ '), red('|'));
+  console.log(red('                                 +------------------------------------+'));
+  console.log(red("                                              +-----------+"));
+  console.log(red("                                              |"), purple("  Zaak   "), red('|'));
+  console.log(red("                                              |"), purple(" @33gael "), red('|'));
+  console.log(red("                                              +-----------+"));
   
   while (true) {
     console.log("[0] Quit");
